@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 function Header() {
   return (
     <header>
@@ -23,27 +25,27 @@ function Header() {
           </div>
         </div>
         <nav className="flex justify-between w-8/12 m-auto pt-2">
-          <a href="/" className="p-4">
+          <Link href="/" className="p-4">
             Home
-          </a>
-          <a href="/database" className="p-4">
+          </Link>
+          <Link href="/database" className="p-4">
             Database
-          </a>
-          <a href="/projects" className="p-4">
+          </Link>
+          <Link href="/projects" className="p-4">
             Projects
-          </a>
-          <a href="/advocacy" className="p-4">
+          </Link>
+          <Link href="/advocacy" className="p-4">
             Advocacy
-          </a>
-          <a href="/publications" className="p-4">
+          </Link>
+          <Link href="/publications" className="p-4">
             Publications
-          </a>
-          <a href="/blog" className="p-4">
+          </Link>
+          <Link href="/blog" className="p-4">
             Blog
-          </a>
-          <a href="/about" className="p-4">
+          </Link>
+          <Link href="/about" className="p-4">
             About Us
-          </a>
+          </Link>
         </nav>
       </div>
     </header>
