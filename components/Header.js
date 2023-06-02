@@ -1,6 +1,8 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 function Header() {
+  const router = useRouter();
   return (
     <header>
       <div className="p-4">
@@ -25,25 +27,25 @@ function Header() {
           </div>
         </div>
         <nav className="flex justify-between w-8/12 m-auto pt-2">
-          <Link href="/" className="p-4">
+          <Link href="/" className={router.pathname == "/" ? "border-b-4 border-primary pt-4 px-4" : "pt-4 px-4"}>
             Home
           </Link>
-          <Link href="/database" className="p-4">
+          <Link href="/database" className={router.pathname == "/database" ? "border-b-4 border-primary pt-4 px-4" : "pt-4 px-4"}>
             Database
           </Link>
-          <Link href="/projects" className="p-4">
+          <Link href="/projects" className={router.pathname == "/projects" ? "border-b-4 border-primary pt-4 px-4" : "pt-4 px-4"}>
             Projects
           </Link>
-          <Link href="/advocacy" className="p-4">
+          <Link href="/advocacy" className={router.pathname == "/advocacy" ? "border-b-4 border-primary pt-4 px-4" : "pt-4 px-4"}>
             Advocacy
           </Link>
-          <Link href="/publications" className="p-4">
+          <Link href="/publications" className={router.pathname == "/publications" ? "border-b-4 border-primary pt-4 px-4" : "pt-4 px-4"}>
             Publications
           </Link>
-          <Link href="/blog" className="p-4">
+          <Link href="/blog" className={router.pathname == "/blog" ? "border-b-4 border-primary pt-4 px-4" : "pt-4 px-4"}>
             Blog
           </Link>
-          <Link href="/about" className="p-4">
+          <Link href="/about" className={router.pathname == "/about" ? "border-b-4 border-primary pt-4 px-4" : "pt-4 px-4"}>
             About Us
           </Link>
         </nav>
