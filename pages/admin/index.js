@@ -1,5 +1,19 @@
 import Head from "next/head";
-import { useReducer } from "react";
+import { MongoClient } from "mongodb";
+import { useReducer, useState } from "react";
+// Added updateCountry function - and MongoClient import and it stopped working
+export async function updateCountry(id, data) {
+  const client = await MongoClient.connect("mongodb+srv://atlas:MON!jul21@cluster0.mnljr.mongodb.net/dpw?retryWrites=true&w=majority");
+  const db = client.db();
+  const countriesCollection = db.collection("countries");
+
+  if (id && data) {
+    await countriesCollection.findByIdAndUpdate({ _id: id, data });
+    await client.close();
+  } else {
+    console.log("no country id or data");
+  }
+}
 
 const formReducer = (state, event) => {
   const uglyJson = event.target.value;
@@ -19,6 +33,11 @@ export default function ADmin() {
     console.log(formData);
     console.log(formData.english);
     console.log(JSON.parse(formData.english));
+    try {
+      updateCountry("id", formData);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const prettyJson = (event) => {
