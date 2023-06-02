@@ -1,0 +1,62 @@
+{
+    "_id": {
+        "$oid": "646d155bd67f9dd406430adc"
+      },
+    "lastUpdated": "2023-07-01 15:00:00.000",
+    "shortName": "Afghanistan",
+    "language": "en",
+    "Headers": {
+        "CountryProfile": {
+            "Country":[
+                {
+    "title": "official country name",
+    "body": "Islamic Republic of Afghanistan (Afghanistan)"
+    }],
+            "Region": [
+                {
+    "title": "Geographical Region",
+    "body": "Asia(South-central Asia)"
+    }],
+            "Language": [
+                {
+    "title": "Language(s)",
+    "body": "Dari (Afghan Farsi), Pashto"
+    }],
+            "Population": [
+                {
+    "title": "Population",
+    "body": "28,396,000"
+    }]
+    },
+    "Death Penalty Profile": {
+        "Status":[
+                {
+            "title": "Retentionist or Abolitionist De Facto",
+            "body": "Retentionist"
+        }],
+        "Last Execution": [
+                {
+            "title": "Year of Last Known Execution",
+            "body": "2022"
+        }],
+        "Execution Methods": [
+            {
+            "title": "Methods of Execution",
+            "body":[
+                {
+                "Subhead": "Hanging",
+                "Body": "Although the Penal Code explicitly mentions hanging as the sole method of execution, this only covers crimes that fall under the tazir category of Islamic law. Although there remains the possibility of alternate methods of execution for crimes defined as Hudud or Qisas under Shariah,  executions for offenses that may have been Hudud and Qisas crimes in 2008 were carried out by hanging, indicating that hanging may continue to be used as the preferred method of judicial executions."
+                },
+                {
+                "Subhead": "Shooting",
+                "Body": "In the recent past, a number of executions have been by firing squad."
+                }, 
+                {
+                "Subhead": "Comments",
+                "Body": "A resurgent Taliban has recently carried out executions in Taliban-controlled areas pursuant to the verdicts of Taliban-controlled Shariah courts. A couple was executed in 2010 for eloping to avoid the woman’s arranged marriage to another man; the two were stoned to death by male villagers. A 7-year-old boy was reportedly executed for spying on the Taliban on behalf of the government. In 2011, a mother and daughter were stoned and shot to death reportedly by the Taliban following accusations of “moral deviation and adultery.” In 2012, the Taliban executed a 22-year-old woman accused of adultery without an actual trial, which contradicts Shariah law.  These executions (which inflict inhuman and degrading treatment, including torture, on the victim) contravene the human rights protections recognized by Afghanistan’s Constitution."
+                }]
+            }]
+        }
+    }
+}
+    
