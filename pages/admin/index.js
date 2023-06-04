@@ -1,55 +1,50 @@
 import Head from "next/head";
-import { MongoClient } from "mongodb";
-import { useReducer, useState } from "react";
-// Added updateCountry function - and MongoClient import and it stopped working
-export async function updateCountry(id, data) {
-  const client = await MongoClient.connect("mongodb+srv://atlas:MON!jul21@cluster0.mnljr.mongodb.net/dpw?retryWrites=true&w=majority");
-  const db = client.db();
-  const countriesCollection = db.collection("countries");
 
-  if (id && data) {
-    await countriesCollection.findByIdAndUpdate({ _id: id, data });
-    await client.close();
-  } else {
-    console.log("no country id or data");
-  }
-}
+import { useReducer, useState } from "react";
 
 const formReducer = (state, event) => {
   const uglyJson = event.target.value;
-  const obj = JSON.parse(uglyJson);
-  const prettyJson = JSON.stringify(obj, undefined, 4);
   return {
     ...state,
-    [event.target.name]: prettyJson,
+    [event.target.name]: uglyJson,
   };
 };
 
 export default function ADmin() {
   const [formData, setFormData] = useReducer(formReducer, {});
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(formData);
     console.log(formData.english);
     console.log(JSON.parse(formData.english));
+
     try {
-      updateCountry("id", formData);
+      // thus is where i am at
+      const response = await fetch("http://localhost:3000/api/countries", {
+        method: "PUT",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: { id: "646d155bd67f9dd406430adc", formData },
+      });
+      // ********************
     } catch (err) {
       console.log(err);
     }
   };
 
-  const prettyJson = (event) => {
+  const prettyJson = (event, res) => {
     const uglyJson = document.getElementById("english").value;
-    const obj = JSON.parse(uglyJson);
-    const prettyJson = JSON.stringify(obj, undefined, 4);
-    document.getElementById("english").value = prettyJson;
-    console.log(prettyJson);
-    const stringed = JSON.stringify(prettyJson);
-    console.log("string", stringed);
-    const parsed = JSON.parse(stringed);
-    console.log("parsed", parsed);
+    try {
+      const obj = JSON.parse(uglyJson);
+      const id = obj._id.$oid;
+      console.log(formData);
+      const pretty = JSON.stringify(obj, undefined, 4);
+      document.getElementById("english").value = pretty;
+    } catch (err) {
+      return console.log("Not valid JSON!");
+    }
   };
 
   return (
