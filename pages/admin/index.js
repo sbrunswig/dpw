@@ -21,13 +21,15 @@ export default function ADmin() {
 
     try {
       const english = JSON.stringify(formData.english);
-      // Fetch is erroring out with a 404.
 
-      await fetch("http://localhost:3000/api/countries", {
+      const response = await fetch("/api/countries", {
         method: "PUT",
-        body: { id: "646d155bd67f9dd406430adc", formData: "this is text" },
+        // CHANGE HARD CODED ID *****************************************
+        body: JSON.stringify({ id: "647b484bd625e859a1196189", formData: english }),
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
-      // ********************
     } catch (err) {
       console.log(err);
     }
