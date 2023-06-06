@@ -30,11 +30,13 @@ export async function postCountry(req, res) {
 
 // put a country
 export async function putCountry(req, res) {
+  const countryId = req.body.id;
+  const formData = req.body.formData;
+
   try {
-    const { countryId } = req.query;
-    const formData = req.body;
     if (countryId && formData) {
-      const country = await Country.findByIdAndUpdate(countryId, formData);
+      console.log(countryId, formData);
+      const country = await Country.findByIdAndUpdate(countryId, { english: formData });
       //   THIS IS NOT RETURNING THE UPDATED DATA ****************************************************
       res.status(200).json(country);
     } else {

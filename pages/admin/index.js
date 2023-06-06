@@ -15,18 +15,17 @@ export default function ADmin() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(formData);
-    console.log(formData.english);
-    console.log(JSON.parse(formData.english));
+    console.log("formData", formData);
+    console.log(".English", JSON.stringify(formData.english));
+    console.log("jsonParsed", JSON.parse(formData.english));
 
     try {
-      // thus is where i am at
-      const response = await fetch("http://localhost:3000/api/countries", {
+      const english = JSON.stringify(formData.english);
+      // Fetch is erroring out with a 404.
+
+      await fetch("http://localhost:3000/api/countries", {
         method: "PUT",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: { id: "646d155bd67f9dd406430adc", formData },
+        body: { id: "646d155bd67f9dd406430adc", formData: "this is text" },
       });
       // ********************
     } catch (err) {
